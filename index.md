@@ -1,5 +1,5 @@
 
-Teaching a car to drive with deep learning
+###Teaching a car to drive with deep learning
 
 This article is a write up of David Silver's [video tutorial](https://www.youtube.com/watch?v=rpxZ87YFg0M&index=3&list=PLAwxTw4SYaPkz3HerxrHlu1Seq8ZA7-5P) for Udacity's excellent [Self-Driving Car Nanodegree](https://classroom.udacity.com/nanodegrees/nd013/syllabus). With thanks to David and all the instructors and mentors on the course.
 
@@ -15,7 +15,7 @@ The program is written in Python and deep learning framework Keras. You can see 
 [image6]: article_images/fourth_take.PNG "Fourth take"
 [image7]: article_images/fifth_take_drive.PNG "Fifth take"
 
-Loading data
+####Loading data
 
 We can either use the data of steering angles and images provided by Udacity, or collect data ourselves by driving a car around a track in Udacity's [simulator](https://github.com/udacity/self-driving-car-sim){which they kindly made open source). We'll need around 3 laps of driving to supply enough images and corresponding steering angles to work with. 
 
