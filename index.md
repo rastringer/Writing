@@ -15,6 +15,8 @@ The program is written in Python and deep learning framework Keras. You can see 
 [image6]: article_images/fourth_take.PNG "Fourth take"
 [image7]: article_images/fifth_take_drive.PNG "Fifth take"
 
+Loading data
+
 We can either use the data of steering angles and images provided by Udacity, or collect data ourselves by driving a car around a track in Udacity's [simulator](https://github.com/udacity/self-driving-car-sim){which they kindly made open source). We'll need around 3 laps of driving to supply enough images and corresponding steering angles to work with. 
 
 I'll start with the Udacity data for this project. First of all, we load the data of around 6,000 images from the csv file. The images are in three colums, snapped from center, right and left cameras. They have a corresponding steering angle -- the steer the car had to make in that frame to stay on the track. We load both into ```images[]``` and ```measurements[]``` arrays.
@@ -47,6 +49,8 @@ X_train = np.array(images[1:])
 y_train = np.array(measurements[1:])
 
 ```
+
+Building a model
 
 Even at this early stage, with just nine more lines of code, we can add a Keras deep learning model and check the results. 
 
@@ -92,6 +96,8 @@ And we still drive into the lake:
 
 ![alt text][image4]
 
+Adding convolutions
+
 Here's where we start to make the model more sophisticated. We add convolutional layers based on Yann LeCun's LeNet architecture, which includes two convolutional layers, two pooling layers, a flatten layer and three fully-connected layers. We also reduce the epochs to 5 as this may be sufficient to reach a low error without proceeding to overfit. 
 The updated model:
 
@@ -115,6 +121,8 @@ model.add(Dense(1))
 We see improved accuracy:
 
 ![alt text][image5]
+
+Image augmentation and pre-processing
 
 The car, however, is still driving for the lake. Now that we have a reliable model, we can experiment with ways to make the most of our image data. 
 Firstly, we need to address the bias that comes from driving the car anti-clockwise around the track. This means that we are mostly adjusting steering to the left, and probably explains the car's eagerness to careen off the track towards the pond in that direction. 
@@ -241,6 +249,8 @@ model.add(Dense(1))
 ```
 
 At this stage, the loss is down to 0.0157 after just 3 epochs. The car will probably be driving decently, however will likely go off the track at some of the trickier parts of the course. Now we can pay attention to these difficulties, add a few more recordings of the car navigating the features well (such as the bridge, or corners without the usual boundary markings).
+
+Choosing a model
 
 We can also have some fun experimenting with different model architectures. ResNet, AlexNet and others spring to mind as possible convolutional models. Below is an archietcture based on Nvidia's [end-to-end](http://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf) deep learning model. 
 The network consists of 12 layers, including a normalization layer, 5 convolutional layers and 3 fully connected layers. The model's first 3 convolutional layers have a 2 X 2 stride, 5 X 5 kernel and a relu activation. The last 2 convolutional layers are non-strided, with a 3 X 3 kernel size. Following the convolutional layers, we have a flatten layer, followed by the 3 fully-connected layers featuring 100, 50 and finally 1 neuron.
