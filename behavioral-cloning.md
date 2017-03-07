@@ -74,8 +74,6 @@ This is a simple iteration, with a flattening layer and one fully-connected laye
 
 ![alt text][image2]
 
-First model results
-
 Notice the model, running with 10 epochs, begins overfitting by epoch 8 (the validation error starts increasing):
 
 ![alt text][image1]
