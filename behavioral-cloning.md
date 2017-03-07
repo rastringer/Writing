@@ -102,15 +102,19 @@ The updated model:
 
 ```
 model = Sequential()
+
 # Normalizing lambda layer
 model.add(Lambda(lambda x: x / 255.0 - 0.5, input_shape=(160,320,3)))
+
 # First convolutional layer
 model.add(Convolution2D(6,5,5,activation='relu'))
 model.add(MaxPooling2D())
+
 # Second convolutional layer
 model.add(Convolution2D(6,5,5,activation='relu'))
 model.add(MaxPooling2D())
 model.add(Flatten())
+
 # Fully-connected layers
 model.add(Dense(120))
 model.add(Dense(84))
@@ -136,6 +140,7 @@ augmented_measurements = []
 for image, measurement in zip(images, measurements):
 	augmented_images.append(image)
 	augmented_measurements.append(measurement)
+	
 	# Flip images to reduce bias from anti-clockwise driving
 	flipped_image = cv2.flip(image, 1)
 	flipped_measurement = float(measurement) * -1.0
@@ -184,10 +189,13 @@ for line in lines:
 		images.append(image)
 	correction = 0.2
 	measurement = float(line[3])
+	
 	# Steering adjustment for center images
 	measurements.append(measurement)
+	
 	# Add correction for steering for left images
 	measurements.append(measurement+correction)
+	
 	# Minus correction for steering for right images
 	measurements.append(measurement-correction)
 
