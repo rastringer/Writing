@@ -18,7 +18,7 @@ The program is written in Python and deep learning framework Keras. You can see 
 Loading data
 ------------------
 
-We can either use the data of steering angles and images provided by Udacity, or collect data ourselves by driving a car around a track in Udacity's <a href="https://github.com/udacity/self-driving-car-sim" target="_blank">[simulator]</a>(which they kindly made open source). We'll need around 3 laps of driving to supply enough images and corresponding steering angles to work with. 
+We can either use the data of steering angles and images provided by Udacity, or collect data ourselves by driving a car around a track in Udacity's [simulator](https://github.com/udacity/self-driving-car-sim)which they kindly made open source). We'll need around 3 laps of driving to supply enough images and corresponding steering angles to work with. 
 
 I'll start with the Udacity data for this project. First of all, we load the data of around 6,000 images from the csv file. The images are in three colums, snapped from center, right and left cameras. They have a corresponding steering angle -- the steer the car had to make in that frame to stay on the track. We load both into ```images[]``` and ```measurements[]``` arrays.
 
