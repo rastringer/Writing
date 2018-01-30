@@ -8,4 +8,7 @@ on deep learning and other topics. Please see [rastringer.com](https://www.rastr
 Using image pre-processing techniques and convolutional neural networks to teach a car to drive around a track in a simulator. 
 
 **Blockchain**
+
 [Distilling the blockchain](blockchain_primer.md)
+
+An introduction to blockchain technologies and consensus techniques.
