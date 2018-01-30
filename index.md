@@ -9,6 +9,6 @@ Using image pre-processing techniques and convolutional neural networks to teach
 
 **Blockchain**
 
-[Distilling the blockchain](blockchain_primer.md)
+[Distilling the blockchain](blockchain_primer/blockchain_primer.md)
 
 An introduction to blockchain technologies and consensus techniques.
